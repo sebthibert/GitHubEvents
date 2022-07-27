@@ -14,6 +14,7 @@
 		F237B267288FB6D100B63A5B /* GitHubEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B266288FB6D100B63A5B /* GitHubEventsTests.swift */; };
 		F237B271288FB6D100B63A5B /* GitHubEventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B270288FB6D100B63A5B /* GitHubEventsUITests.swift */; };
 		F237B273288FB6D100B63A5B /* GitHubEventsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B272288FB6D100B63A5B /* GitHubEventsUITestsLaunchTests.swift */; };
+		F237B281288FB70900B63A5B /* SplebbosNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F237B280288FB70900B63A5B /* SplebbosNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F237B281288FB70900B63A5B /* SplebbosNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = GitHubEvents;
+			packageProductDependencies = (
+				F237B280288FB70900B63A5B /* SplebbosNetworking */,
+			);
 			productName = GitHubEvents;
 			productReference = F237B252288FB6D000B63A5B /* GitHubEvents.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = F237B249288FB6D000B63A5B;
+			packageReferences = (
+				F237B27F288FB70900B63A5B /* XCRemoteSwiftPackageReference "SplebbosNetworking" */,
+			);
 			productRefGroup = F237B253288FB6D000B63A5B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -429,9 +437,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splebbo.GitHubEvents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -458,9 +470,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splebbo.GitHubEvents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,6 +599,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F237B27F288FB70900B63A5B /* XCRemoteSwiftPackageReference "SplebbosNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sebthibert/SplebbosNetworking";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F237B280288FB70900B63A5B /* SplebbosNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F237B27F288FB70900B63A5B /* XCRemoteSwiftPackageReference "SplebbosNetworking" */;
+			productName = SplebbosNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F237B24A288FB6D000B63A5B /* Project object */;
 }

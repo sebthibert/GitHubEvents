@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "splebbosnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sebthibert/SplebbosNetworking",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0d3bc6dcac2118d5920a6088d99b07d8b646cdfc"
+      }
+    }
+  ],
+  "version" : 2
+}
