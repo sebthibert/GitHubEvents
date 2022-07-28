@@ -85,7 +85,7 @@ struct ShowEventsInMonth: AppIntent {
         }
         .padding()
       }
-      return .result(dialog: "Here are the first few events for \(month)", view: view)
+      return .result(dialog: "Here are the events for \(month)", view: view)
     } else {
       return .result(dialog: "Sorry I could not do that.", view: Text("Unlucky"))
     }
@@ -97,11 +97,10 @@ struct ShowNextBirthdayProvider: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(intent: ShowNextEvent(), phrases: [
       "What event is next?",
-      "Show me the next event in \(.applicationName)",
-      "Loads of phrases",
+      "What event is coming up?",
     ])
     AppShortcut(intent: ShowEventsInMonth(), phrases: [
-      "Show me this events"
+      "Show me events for a month",
     ])
   }
 }

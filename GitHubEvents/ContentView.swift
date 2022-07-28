@@ -1,10 +1,12 @@
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
   @ObservedObject var viewModel: ViewModel
   @State var searchableText = ""
   @State var selectedLabels: [Event.EventLabel] = []
-  @Environment(\.dynamicTypeSize) var dynamicTypeSize
+  @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var bodyForState: some View {
     Group {
@@ -198,22 +200,6 @@ struct LabelsStack: View {
 import Combine
 import SplebbosNetworking
 
-extension URLSession {
-  static func getEvents() async -> Result<[Event], Error> {
-    let refreshResource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
-    return await shared.decodable(for: refreshResource, decoder: .events)
-  }
-}
-
-private extension Resource {
-  static let host = "sebthibert.github.io"
-  static let path = "/api/events.json"
-}
-
-private extension JSONDecoder {
-  static let events = decoderWith(.useDefaultKeys, .secondsSince1970)
-}
-
 final class ViewModel: ObservableObject {
   enum State {
     case idle
@@ -237,24 +223,14 @@ final class ViewModel: ObservableObject {
 
   @Sendable func refreshEvents() {
     cancellable = session.decodablePublisher(for: refreshResource, decoder: .events)
+      .handleEvents(receiveOutput: { _ in WidgetCenter.shared.reloadAllTimelines() })
       .map { (events: [Event]) in State.loaded(events.sorted()) }
       .catch { Just(.failed($0)) }
       .assign(to: \.state, on: self)
   }
 }
 
-struct Event: Decodable, Identifiable {
-  let primaryName: String
-  let secondaryName: String?
-  let timestamp: Date
-  let type: EventType
-  let imageURL: URL?
-  let labels: [EventLabel]
 
-  var id: String {
-    primaryName + timestamp.description + type.rawValue
-  }
-}
 
 extension Array where Element == Event {
   func filtered(text: String, labels: [Event.EventLabel]) -> [Element] {
@@ -302,12 +278,38 @@ extension TimeZone {
   static let gmt = TimeZone(secondsFromGMT: 0)
 }
 
-extension Event {
-  private func gmt(dateFormat: String) -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = .gmt
-    dateFormatter.dateFormat = dateFormat
-    return dateFormatter.string(from: timestamp)
+extension Resource {
+  static let host = "sebthibert.github.io"
+  static let path = "/api/events.json"
+}
+
+extension JSONDecoder {
+  static let events = decoderWith(.useDefaultKeys, .secondsSince1970)
+}
+
+
+extension URLSession {
+  static func getEvents() async -> Result<[Event], Error> {
+    let resource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+    return await shared.decodable(for: resource, decoder: .events)
+  }
+
+  static func getWidgetEvents(completion: @escaping (Result<[Event], Error>) -> Void) {
+    let resource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+    shared.decodableTask(for: resource, decoder: .events, completion: completion)
+  }
+}
+
+struct Event: Decodable, Identifiable {
+  let primaryName: String
+  let secondaryName: String?
+  let timestamp: Date
+  let type: EventType
+  let imageURL: URL?
+  let labels: [EventLabel]
+
+  var id: String {
+    primaryName + timestamp.description + type.rawValue
   }
 }
 
@@ -336,7 +338,18 @@ extension Event {
       }
     }
   }
+}
 
+extension Event {
+  private func gmt(dateFormat: String) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = .gmt
+    dateFormatter.dateFormat = dateFormat
+    return dateFormatter.string(from: timestamp)
+  }
+}
+
+extension Event {
   var title: String {
     switch type {
     case .birthday:
