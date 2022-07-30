@@ -22,6 +22,8 @@
 		F253747D28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */; };
 		F253747E28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */; };
 		F253748128919E280097FCD7 /* GitHubEventsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F253747028919E270097FCD7 /* GitHubEventsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
+		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2F7782C2891A36600BFB598 /* SplebbosNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F2F7782B2891A36600BFB598 /* SplebbosNetworking */; };
 		F2F7782D2891A37000BFB598 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,7 @@
 		F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GitHubEventsWidget.intentdefinition; sourceTree = "<group>"; };
 		F253747A28919E280097FCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F253747C28919E280097FCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2ED223E289517AA00A1507C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,7 @@
 		F237B249288FB6D000B63A5B = {
 			isa = PBXGroup;
 			children = (
+				F2ED223E289517AA00A1507C /* GoogleService-Info.plist */,
 				F237B254288FB6D000B63A5B /* GitHubEvents */,
 				F237B265288FB6D100B63A5B /* GitHubEventsTests */,
 				F237B26F288FB6D100B63A5B /* GitHubEventsUITests */,
@@ -337,6 +341,7 @@
 			files = (
 				F237B25D288FB6D100B63A5B /* Preview Assets.xcassets in Resources */,
 				F237B25A288FB6D100B63A5B /* Assets.xcassets in Resources */,
+				F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F253747B28919E280097FCD7 /* Assets.xcassets in Resources */,
+				F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

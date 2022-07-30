@@ -1,6 +1,67 @@
 import SwiftUI
 import WidgetKit
 
+extension Array where Element == Event {
+  static let stub: [Event] = [
+    Event(
+      primaryName: "Ringo",
+      secondaryName: "Marvin",
+      timestamp: Date(timeIntervalSince1970: 800000000),
+      type: .anniversary,
+      imageURL: nil,
+      labels: [.love]
+    ),
+    Event(
+      primaryName: "Hugo",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 700000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.friends]
+    ),
+    Event(
+      primaryName: "Hagrid",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 600000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.family]
+    ),
+    Event(
+      primaryName: "Harry",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 500000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.family]
+    ),
+    Event(
+      primaryName: "Ron",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 400000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.family]
+    ),
+    Event(
+      primaryName: "Hermione",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 300000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.friends]
+    ),
+    Event(
+      primaryName: "Draco",
+      secondaryName: nil,
+      timestamp: Date(timeIntervalSince1970: 200000000),
+      type: .birthday,
+      imageURL: nil,
+      labels: [.love]
+    ),
+  ]
+}
+
 struct ContentView: View {
   @ObservedObject var viewModel: ViewModel
   @State var searchableText = ""
@@ -17,6 +78,7 @@ struct ContentView: View {
           let text = events.count >= 1 ? "\(events.count) \(events.count > 1 ? "events" : "event")" : "No events found for \(searchableText)"
           HStack(spacing: 6) {
             Text(text)
+              .accessibility(identifier: "Event Count")
               .font(.footnote.monospaced().bold())
               .padding(.vertical, 8)
             Spacer()
@@ -42,7 +104,7 @@ struct ContentView: View {
         }
         .listStyle(.plain)
         .refreshable(action: viewModel.refreshEvents)
-        .searchable(text: $searchableText)
+        .searchable(text: $searchableText, prompt: "Search events")
         .animation(.default, value: searchableText)
         .animation(.default, value: selectedLabels)
       case .failed(let error):
@@ -163,6 +225,7 @@ struct LabelsStack: View {
   func content() -> some View {
     ForEach(labels, id: \.self) { label in
       Text(label.rawValue)
+        .accessibilityLabel("123")
         .lineLimit(1)
         .font(.caption.monospaced().bold())
         .foregroundColor(.white)
@@ -214,11 +277,15 @@ final class ViewModel: ObservableObject {
   @Published var state: State = .idle
 
   func getEvents() {
+#if DEBUG
+    state = .loaded(.stub)
+#else
     cancellable = session.decodablePublisher(for: loadResource, decoder: .events)
       .handleEvents(receiveSubscription: { _ in self.state = .loading })
       .map { (events: [Event]) in State.loaded(events.sorted()) }
       .catch { Just(.failed($0)) }
       .assign(to: \.state, on: self)
+#endif
   }
 
   @Sendable func refreshEvents() {
