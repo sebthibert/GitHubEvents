@@ -1,14 +1,75 @@
+import FirebaseCore
 import SwiftUI
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+  ) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
+
+import FirebaseFirestore
+import FirebaseFirestoreCombineSwift
+
+struct FirebaseController {
+  static let database = Firestore.firestore()
+  static let collection = database.collection("splebbo-events")
+
+  static func addEvent(_ event: Event) {
+    var ref: DocumentReference? = nil
+    do {
+      ref = try collection.addDocument(from: event)
+      print("Document added with ID: \(ref!.documentID)")
+    } catch {
+      print("Error adding document: \(error)")
+    }
+  }
+
+  static func getEvents(completion: @escaping ([Event]) -> Void) {
+    collection.getDocuments { snapshot, error in
+      if let documents = snapshot?.documents, error == nil {
+        let events = documents.compactMap { try? $0.data(as: Event.self) }
+        completion(events)
+      } else if let error = error {
+        print("Error getting documents: \(error)")
+      }
+    }
+  }
+}
 
 @main
 struct GitHubEventsApp: App {
   let viewModel = ViewModel()
+  @State var events: [Event] = []
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
   var body: some Scene {
     WindowGroup {
 #if os(iOS)
       NavigationView {
         ContentView(viewModel: viewModel)
+//        VStack {
+//          Button("Add event") {
+//            FirebaseController.addEvent(Event(
+//              primaryName: "Test",
+//              secondaryName: nil,
+//              timestamp: Date(),
+//              type: .birthday,
+//              imageURL: nil,
+//              labels: [.friends, .family]))
+//          }
+//          .onAppear {
+//            FirebaseController.getEvents { events in
+//              self.events = events
+//            }
+//          }
+//          ForEach(events) {
+//            EventRow(event: $0, selectedLabels: .constant([]))
+//          }
+//        }
       }
       .navigationViewStyle(.stack)
 #else
@@ -26,8 +87,7 @@ struct ShowNextEvent: AppIntent {
   static var title: LocalizedStringResource = "Show next event"
 
   func perform() async throws -> some IntentResult {
-    let result = await URLSession.getEvents()
-    let firstEvent = try? result.get()
+    let firstEvent = try? await URLSession.widgetEvents()
       .sorted()
       .first
     if let event = firstEvent {
@@ -70,8 +130,7 @@ struct ShowEventsInMonth: AppIntent {
   @Parameter(title: "month") var month: Month
 
   func perform() async throws -> some IntentResult {
-    let result = await URLSession.getEvents()
-    let monthEvents = try? result.get()
+    let monthEvents = try? await URLSession.widgetEvents()
       .sorted()
       .filter { $0.dateComponents.month == (month.rawValue + 1) }
     if let events = monthEvents {
@@ -95,10 +154,10 @@ struct ShowEventsInMonth: AppIntent {
 @available(iOS 16, *)
 struct ShowNextBirthdayProvider: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
-    AppShortcut(intent: ShowNextEvent(), phrases: [
-      "What event is next? \(.applicationName)",
-      "What event is coming up?",
-    ])
+//    AppShortcut(intent: ShowNextEvent(), phrases: [
+//      "What event is next? \(.applicationName)",
+//      "What event is coming up?",
+//    ])
     AppShortcut(intent: ShowEventsInMonth(), phrases: [
       "Show me events for a month",
     ])

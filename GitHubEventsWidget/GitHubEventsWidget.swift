@@ -4,24 +4,16 @@ import WidgetKit
 
 struct Provider: IntentTimelineProvider {
   func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), events: [], configuration: ConfigurationIntent())
+    SimpleEntry(date: Date(), events: [])
   }
 
-  private func getEvents(completion: @escaping ([Event]) -> Void) {
-    URLSession.getWidgetEvents { result in
-      switch result {
-      case .success(let events):
-        completion(events.sorted())
-      case .failure(let error):
-        print(error)
-        completion([])
-      }
-    }
+  private func events() async throws -> [Event] {
+    try await URLSession.widgetEvents().sorted()
   }
 
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-    getEvents { events in
-      let entry = SimpleEntry(date: Date(), events: events, configuration: configuration)
+    Task {
+      let entry = SimpleEntry(date: Date(), events: try await events())
       completion(entry)
     }
   }
@@ -31,11 +23,9 @@ struct Provider: IntentTimelineProvider {
     in context: Context,
     completion: @escaping (Timeline<Entry>) -> ()
   ) {
-    var entries: [SimpleEntry] = []
-    getEvents { events in
-      let entry = SimpleEntry(date: Date(), events: events, configuration: configuration)
-      entries.append(entry)
-      let timeline = Timeline(entries: entries, policy: .atEnd)
+    Task {
+      let entry = SimpleEntry(date: Date(), events: try await events())
+      let timeline = Timeline(entries: [entry], policy: .atEnd)
       completion(timeline)
     }
   }
@@ -44,7 +34,6 @@ struct Provider: IntentTimelineProvider {
 struct SimpleEntry: TimelineEntry {
   let date: Date
   let events: [Event]
-  let configuration: ConfigurationIntent
 }
 
 struct GitHubEventsWidgetEntryView : View {

@@ -120,7 +120,7 @@ struct ContentView: View {
 #if os(iOS)
       .navigationBarTitle("Events", displayMode: .inline)
 #endif
-      .onAppear(perform: viewModel.getEvents)
+      .task(viewModel.getEvents)
   }
 }
 
@@ -260,9 +260,9 @@ struct LabelsStack: View {
   }
 }
 
-import Combine
 import SplebbosNetworking
 
+@MainActor
 final class ViewModel: ObservableObject {
   enum State {
     case idle
@@ -270,34 +270,36 @@ final class ViewModel: ObservableObject {
     case loaded([Event])
     case failed(Error)
   }
-  private let session = URLSession.shared
-  private let loadResource = Resource(host: Resource.host, path: Resource.path)
-  private let refreshResource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
-  private var cancellable: AnyCancellable?
   @Published var state: State = .idle
 
-  func getEvents() {
-#if DEBUG
-    state = .loaded(.stub)
-#else
-    cancellable = session.decodablePublisher(for: loadResource, decoder: .events)
-      .handleEvents(receiveSubscription: { _ in self.state = .loading })
-      .map { (events: [Event]) in State.loaded(events.sorted()) }
-      .catch { Just(.failed($0)) }
-      .assign(to: \.state, on: self)
-#endif
+  @Sendable func getEvents() async {
+    // Need the if else for UI testing
+//#if DEBUG
+//    state = .loaded(.stub.sorted())
+//#else
+    state = .loading
+    do { state = .loaded(try await URLSession.events().sorted()) }
+    catch { state = .failed(error) }
+//#endif
   }
 
-  @Sendable func refreshEvents() {
-    cancellable = session.decodablePublisher(for: refreshResource, decoder: .events)
-      .handleEvents(receiveOutput: { _ in WidgetCenter.shared.reloadAllTimelines() })
-      .map { (events: [Event]) in State.loaded(events.sorted()) }
-      .catch { Just(.failed($0)) }
-      .assign(to: \.state, on: self)
+  @Sendable func refreshEvents() async {
+    do {
+      state = .loaded(try await URLSession.widgetEvents().sorted())
+      WidgetCenter.shared.reloadAllTimelines()
+    }
+    catch { state = .failed(error) }
   }
 }
 
-
+extension Resource {
+  static let load = Resource(host: host, path: path)
+  static let refresh = Resource(
+    host: host,
+    path: path,
+    cachePolicy: .reloadIgnoringLocalAndRemoteCacheData
+  )
+}
 
 extension Array where Element == Event {
   func filtered(text: String, labels: [Event.EventLabel]) -> [Element] {
@@ -356,18 +358,16 @@ extension JSONDecoder {
 
 
 extension URLSession {
-  static func getEvents() async -> Result<[Event], Error> {
-    let resource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
-    return await shared.decodable(for: resource, decoder: .events)
+  static func events() async throws -> [Event] {
+    try await shared.decodable(for: .load, decoder: .events)
   }
 
-  static func getWidgetEvents(completion: @escaping (Result<[Event], Error>) -> Void) {
-    let resource = Resource(host: Resource.host, path: Resource.path, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
-    shared.decodableTask(for: resource, decoder: .events, completion: completion)
+  static func widgetEvents() async throws -> [Event] {
+    try await shared.decodable(for: .refresh, decoder: .events)
   }
 }
 
-struct Event: Decodable, Identifiable {
+struct Event: Codable, Identifiable {
   let primaryName: String
   let secondaryName: String?
   let timestamp: Date
@@ -381,12 +381,12 @@ struct Event: Decodable, Identifiable {
 }
 
 extension Event {
-  enum EventType: String, Decodable {
+  enum EventType: String, Codable {
     case birthday
     case anniversary
   }
 
-  enum EventLabel: String, Decodable {
+  enum EventLabel: String, Codable {
     case family
     case friends
     case love

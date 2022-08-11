@@ -24,6 +24,9 @@
 		F253748128919E280097FCD7 /* GitHubEventsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F253747028919E270097FCD7 /* GitHubEventsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
+		F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777502896E2A400F47FF1 /* FirebaseFirestore */; };
+		F2F777532896E2A400F47FF1 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777522896E2A400F47FF1 /* FirebaseFirestoreCombine-Community */; };
+		F2F777552896E2A400F47FF1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777542896E2A400F47FF1 /* FirebaseFirestoreSwift */; };
 		F2F7782C2891A36600BFB598 /* SplebbosNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F2F7782B2891A36600BFB598 /* SplebbosNetworking */; };
 		F2F7782D2891A37000BFB598 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -92,7 +95,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F777532896E2A400F47FF1 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				F237B281288FB70900B63A5B /* SplebbosNetworking in Frameworks */,
+				F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */,
+				F2F777552896E2A400F47FF1 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +229,9 @@
 			name = GitHubEvents;
 			packageProductDependencies = (
 				F237B280288FB70900B63A5B /* SplebbosNetworking */,
+				F2F777502896E2A400F47FF1 /* FirebaseFirestore */,
+				F2F777522896E2A400F47FF1 /* FirebaseFirestoreCombine-Community */,
+				F2F777542896E2A400F47FF1 /* FirebaseFirestoreSwift */,
 			);
 			productName = GitHubEvents;
 			productReference = F237B252288FB6D000B63A5B /* GitHubEvents.app */;
@@ -321,6 +330,7 @@
 			mainGroup = F237B249288FB6D000B63A5B;
 			packageReferences = (
 				F237B27F288FB70900B63A5B /* XCRemoteSwiftPackageReference "SplebbosNetworking" */,
+				F2F7774F2896E2A400F47FF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F237B253288FB6D000B63A5B /* Products */;
 			projectDirPath = "";
@@ -810,6 +820,14 @@
 				kind = branch;
 			};
 		};
+		F2F7774F2896E2A400F47FF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -817,6 +835,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F237B27F288FB70900B63A5B /* XCRemoteSwiftPackageReference "SplebbosNetworking" */;
 			productName = SplebbosNetworking;
+		};
+		F2F777502896E2A400F47FF1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2F7774F2896E2A400F47FF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F2F777522896E2A400F47FF1 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2F7774F2896E2A400F47FF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		F2F777542896E2A400F47FF1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2F7774F2896E2A400F47FF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		F2F7782B2891A36600BFB598 /* SplebbosNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
