@@ -11,7 +11,7 @@
 		F237B258288FB6D000B63A5B /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* EventsView.swift */; };
 		F237B25A288FB6D100B63A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F237B259288FB6D100B63A5B /* Assets.xcassets */; };
 		F237B25D288FB6D100B63A5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F237B25C288FB6D100B63A5B /* Preview Assets.xcassets */; };
-		F237B267288FB6D100B63A5B /* GitHubEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B266288FB6D100B63A5B /* GitHubEventsTests.swift */; };
+		F237B267288FB6D100B63A5B /* EventsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B266288FB6D100B63A5B /* EventsViewModelTests.swift */; };
 		F237B271288FB6D100B63A5B /* GitHubEventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B270288FB6D100B63A5B /* GitHubEventsUITests.swift */; };
 		F237B273288FB6D100B63A5B /* GitHubEventsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B272288FB6D100B63A5B /* GitHubEventsUITestsLaunchTests.swift */; };
 		F237B281288FB70900B63A5B /* SplebbosNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F237B280288FB70900B63A5B /* SplebbosNetworking */; };
@@ -105,7 +105,7 @@
 		F237B259288FB6D100B63A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F237B25C288FB6D100B63A5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F237B262288FB6D100B63A5B /* GitHubEventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubEventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F237B266288FB6D100B63A5B /* GitHubEventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEventsTests.swift; sourceTree = "<group>"; };
+		F237B266288FB6D100B63A5B /* EventsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModelTests.swift; sourceTree = "<group>"; };
 		F237B26C288FB6D100B63A5B /* GitHubEventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubEventsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F237B270288FB6D100B63A5B /* GitHubEventsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEventsUITests.swift; sourceTree = "<group>"; };
 		F237B272288FB6D100B63A5B /* GitHubEventsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEventsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		F237B265288FB6D100B63A5B /* GitHubEventsTests */ = {
 			isa = PBXGroup;
 			children = (
-				F237B266288FB6D100B63A5B /* GitHubEventsTests.swift */,
+				F237B266288FB6D100B63A5B /* EventsViewModelTests.swift */,
 			);
 			path = GitHubEventsTests;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F237B267288FB6D100B63A5B /* GitHubEventsTests.swift in Sources */,
+				F237B267288FB6D100B63A5B /* EventsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,7 +44,7 @@ struct FirebaseController {
 struct GitHubEventsApp: App {
   private let viewModel = EventsViewModel(
     events: URLSession.events,
-    widgetEvents: URLSession.widgetEvents
+    refreshEvents: URLSession.widgetEvents
   )
   @State var events: [Event] = []
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
