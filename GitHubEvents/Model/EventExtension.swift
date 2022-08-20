@@ -2,11 +2,11 @@ import Foundation
 
 extension Event {
   var id: String {
-    primaryName + timestamp.description + type.rawValue
+    primaryName + timestamp.description + category.rawValue
   }
 
   var title: String {
-    switch type {
+    switch category {
     case .birthday:
       return "\(primaryName)'s Birthday"
     case .anniversary:

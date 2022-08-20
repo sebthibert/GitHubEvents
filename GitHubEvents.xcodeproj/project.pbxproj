@@ -51,6 +51,8 @@
 		F2E0441828B134170055147D /* EventArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441628B1340A0055147D /* EventArrayExtension.swift */; };
 		F2E0441A28B1342B0055147D /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441928B1342B0055147D /* EventExtension.swift */; };
 		F2E0441B28B1342D0055147D /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441928B1342B0055147D /* EventExtension.swift */; };
+		F2E0441E28B13C910055147D /* EventLabelArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */; };
+		F2E0441F28B13CA40055147D /* EventLabelArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */; };
 		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777502896E2A400F47FF1 /* FirebaseFirestore */; };
@@ -131,6 +133,7 @@
 		F2E0441328B133C70055147D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F2E0441628B1340A0055147D /* EventArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventArrayExtension.swift; sourceTree = "<group>"; };
 		F2E0441928B1342B0055147D /* EventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExtension.swift; sourceTree = "<group>"; };
+		F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabelArrayExtension.swift; sourceTree = "<group>"; };
 		F2ED223E289517AA00A1507C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +279,7 @@
 				F2E043FF28B1313E0055147D /* Event.swift */,
 				F2E0441628B1340A0055147D /* EventArrayExtension.swift */,
 				F2E0441928B1342B0055147D /* EventExtension.swift */,
+				F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */,
 				F2E043EC28B12CCC0055147D /* TestEvents.swift */,
 			);
 			path = Model;
@@ -496,6 +500,7 @@
 				F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */,
 				F2E0440628B132320055147D /* EventsViewModel.swift in Sources */,
 				F2E043F028B12D290055147D /* TitleView.swift in Sources */,
+				F2E0441E28B13C910055147D /* EventLabelArrayExtension.swift in Sources */,
 				F2E0441428B133C70055147D /* Session.swift in Sources */,
 				F2E0441728B1340A0055147D /* EventArrayExtension.swift in Sources */,
 				F2E0441A28B1342B0055147D /* EventExtension.swift in Sources */,
@@ -539,6 +544,7 @@
 				F2E043FD28B130820055147D /* LabelsStack.swift in Sources */,
 				F2E0440828B132CB0055147D /* Resources.swift in Sources */,
 				F2E0440E28B1338C0055147D /* Calendar.swift in Sources */,
+				F2E0441F28B13CA40055147D /* EventLabelArrayExtension.swift in Sources */,
 				F2E0441128B133A50055147D /* TimeZone.swift in Sources */,
 				F2E043FC28B130710055147D /* Gradients.swift in Sources */,
 				F2E0440B28B133650055147D /* Decoder.swift in Sources */,

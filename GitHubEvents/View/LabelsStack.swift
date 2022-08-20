@@ -41,11 +41,7 @@ struct LabelsStack: View {
         )
         .contentShape(Rectangle())
         .onTapGesture {
-          if let index = selectedLabels.firstIndex(of: label) {
-            selectedLabels.remove(at: index)
-          } else {
-            selectedLabels.append(label)
-          }
+          selectedLabels.toggle(label: label)
         }
     }
   }

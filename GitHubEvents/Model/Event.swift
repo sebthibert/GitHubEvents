@@ -4,7 +4,7 @@ struct Event: Codable, Equatable, Identifiable {
   let primaryName: String
   let secondaryName: String?
   let timestamp: Date
-  let type: Category
+  let category: Category
   let labels: [Label]
 
   enum Category: String, Codable {

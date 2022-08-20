@@ -6,49 +6,49 @@ extension Array where Element == Event {
       primaryName: "Ringo",
       secondaryName: "Marvin",
       timestamp: Date(timeIntervalSince1970: 800000000),
-      type: .anniversary,
+      category: .anniversary,
       labels: [.love]
     ),
     Event(
       primaryName: "Hugo",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 700000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.friends]
     ),
     Event(
       primaryName: "Hagrid",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 600000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.family]
     ),
     Event(
       primaryName: "Harry",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 500000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.family]
     ),
     Event(
       primaryName: "Ron",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 400000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.family]
     ),
     Event(
       primaryName: "Hermione",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 300000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.friends]
     ),
     Event(
       primaryName: "Draco",
       secondaryName: nil,
       timestamp: Date(timeIntervalSince1970: 200000000),
-      type: .birthday,
+      category: .birthday,
       labels: [.love]
     ),
   ]
