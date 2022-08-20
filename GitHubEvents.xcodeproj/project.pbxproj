@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F237B256288FB6D000B63A5B /* GitHubEventsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B255288FB6D000B63A5B /* GitHubEventsApp.swift */; };
-		F237B258288FB6D000B63A5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* ContentView.swift */; };
+		F237B258288FB6D000B63A5B /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* EventsView.swift */; };
 		F237B25A288FB6D100B63A5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F237B259288FB6D100B63A5B /* Assets.xcassets */; };
 		F237B25D288FB6D100B63A5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F237B25C288FB6D100B63A5B /* Preview Assets.xcassets */; };
 		F237B267288FB6D100B63A5B /* GitHubEventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B266288FB6D100B63A5B /* GitHubEventsTests.swift */; };
@@ -22,13 +22,42 @@
 		F253747D28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */; };
 		F253747E28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */; };
 		F253748128919E280097FCD7 /* GitHubEventsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F253747028919E270097FCD7 /* GitHubEventsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2E043ED28B12CCC0055147D /* TestEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EC28B12CCC0055147D /* TestEvents.swift */; };
+		F2E043F028B12D290055147D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EF28B12D290055147D /* TitleView.swift */; };
+		F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* MonthAndDayView.swift */; };
+		F2E043F428B12D810055147D /* LabelsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F328B12D810055147D /* LabelsStack.swift */; };
+		F2E043F528B12E5C0055147D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EF28B12D290055147D /* TitleView.swift */; };
+		F2E043F628B12E610055147D /* MonthAndDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* MonthAndDayView.swift */; };
+		F2E043F828B12EF80055147D /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F728B12EF80055147D /* EventRow.swift */; };
+		F2E043F928B12F040055147D /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F728B12EF80055147D /* EventRow.swift */; };
+		F2E043FB28B12F2C0055147D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043FA28B12F2C0055147D /* Gradients.swift */; };
+		F2E043FC28B130710055147D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043FA28B12F2C0055147D /* Gradients.swift */; };
+		F2E043FD28B130820055147D /* LabelsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F328B12D810055147D /* LabelsStack.swift */; };
+		F2E0440028B1313E0055147D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043FF28B1313E0055147D /* Event.swift */; };
+		F2E0440128B131460055147D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043FF28B1313E0055147D /* Event.swift */; };
+		F2E0440328B131D80055147D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440228B131D80055147D /* Resources.swift */; };
+		F2E0440628B132320055147D /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440528B132320055147D /* EventsViewModel.swift */; };
+		F2E0440728B1323C0055147D /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440528B132320055147D /* EventsViewModel.swift */; };
+		F2E0440828B132CB0055147D /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440228B131D80055147D /* Resources.swift */; };
+		F2E0440A28B133530055147D /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440928B133530055147D /* Decoder.swift */; };
+		F2E0440B28B133650055147D /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440928B133530055147D /* Decoder.swift */; };
+		F2E0440D28B133810055147D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440C28B133810055147D /* Calendar.swift */; };
+		F2E0440E28B1338C0055147D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440C28B133810055147D /* Calendar.swift */; };
+		F2E0441028B1339B0055147D /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440F28B1339B0055147D /* TimeZone.swift */; };
+		F2E0441128B133A50055147D /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0440F28B1339B0055147D /* TimeZone.swift */; };
+		F2E0441428B133C70055147D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441328B133C70055147D /* Session.swift */; };
+		F2E0441528B133D20055147D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441328B133C70055147D /* Session.swift */; };
+		F2E0441728B1340A0055147D /* EventArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441628B1340A0055147D /* EventArrayExtension.swift */; };
+		F2E0441828B134170055147D /* EventArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441628B1340A0055147D /* EventArrayExtension.swift */; };
+		F2E0441A28B1342B0055147D /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441928B1342B0055147D /* EventExtension.swift */; };
+		F2E0441B28B1342D0055147D /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441928B1342B0055147D /* EventExtension.swift */; };
 		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777502896E2A400F47FF1 /* FirebaseFirestore */; };
 		F2F777532896E2A400F47FF1 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777522896E2A400F47FF1 /* FirebaseFirestoreCombine-Community */; };
 		F2F777552896E2A400F47FF1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777542896E2A400F47FF1 /* FirebaseFirestoreSwift */; };
 		F2F7782C2891A36600BFB598 /* SplebbosNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = F2F7782B2891A36600BFB598 /* SplebbosNetworking */; };
-		F2F7782D2891A37000BFB598 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* ContentView.swift */; };
+		F2F7782D2891A37000BFB598 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F237B257288FB6D000B63A5B /* EventsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +101,7 @@
 /* Begin PBXFileReference section */
 		F237B252288FB6D000B63A5B /* GitHubEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F237B255288FB6D000B63A5B /* GitHubEventsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEventsApp.swift; sourceTree = "<group>"; };
-		F237B257288FB6D000B63A5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F237B257288FB6D000B63A5B /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		F237B259288FB6D100B63A5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F237B25C288FB6D100B63A5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F237B262288FB6D100B63A5B /* GitHubEventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubEventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +116,21 @@
 		F253747928919E270097FCD7 /* GitHubEventsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GitHubEventsWidget.intentdefinition; sourceTree = "<group>"; };
 		F253747A28919E280097FCD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F253747C28919E280097FCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2E043EC28B12CCC0055147D /* TestEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEvents.swift; sourceTree = "<group>"; };
+		F2E043EF28B12D290055147D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		F2E043F128B12D3F0055147D /* MonthAndDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAndDayView.swift; sourceTree = "<group>"; };
+		F2E043F328B12D810055147D /* LabelsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsStack.swift; sourceTree = "<group>"; };
+		F2E043F728B12EF80055147D /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
+		F2E043FA28B12F2C0055147D /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		F2E043FF28B1313E0055147D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F2E0440228B131D80055147D /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		F2E0440528B132320055147D /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		F2E0440928B133530055147D /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		F2E0440C28B133810055147D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		F2E0440F28B1339B0055147D /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		F2E0441328B133C70055147D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		F2E0441628B1340A0055147D /* EventArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventArrayExtension.swift; sourceTree = "<group>"; };
+		F2E0441928B1342B0055147D /* EventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExtension.swift; sourceTree = "<group>"; };
 		F2ED223E289517AA00A1507C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,9 +201,13 @@
 			isa = PBXGroup;
 			children = (
 				F237B255288FB6D000B63A5B /* GitHubEventsApp.swift */,
-				F237B257288FB6D000B63A5B /* ContentView.swift */,
 				F237B259288FB6D100B63A5B /* Assets.xcassets */,
+				F2E0441C28B135470055147D /* Date */,
+				F2E043FE28B131360055147D /* Model */,
+				F2E0441228B133B40055147D /* Network */,
 				F237B25B288FB6D100B63A5B /* Preview Content */,
+				F2E043EE28B12D170055147D /* View */,
+				F2E0440428B132140055147D /* View Model */,
 			);
 			path = GitHubEvents;
 			sourceTree = "<group>";
@@ -207,6 +255,57 @@
 				F253747C28919E280097FCD7 /* Info.plist */,
 			);
 			path = GitHubEventsWidget;
+			sourceTree = "<group>";
+		};
+		F2E043EE28B12D170055147D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F2E043F728B12EF80055147D /* EventRow.swift */,
+				F237B257288FB6D000B63A5B /* EventsView.swift */,
+				F2E043FA28B12F2C0055147D /* Gradients.swift */,
+				F2E043F328B12D810055147D /* LabelsStack.swift */,
+				F2E043F128B12D3F0055147D /* MonthAndDayView.swift */,
+				F2E043EF28B12D290055147D /* TitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F2E043FE28B131360055147D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2E043FF28B1313E0055147D /* Event.swift */,
+				F2E0441628B1340A0055147D /* EventArrayExtension.swift */,
+				F2E0441928B1342B0055147D /* EventExtension.swift */,
+				F2E043EC28B12CCC0055147D /* TestEvents.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F2E0440428B132140055147D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0440528B132320055147D /* EventsViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		F2E0441228B133B40055147D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0440928B133530055147D /* Decoder.swift */,
+				F2E0440228B131D80055147D /* Resources.swift */,
+				F2E0441328B133C70055147D /* Session.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F2E0441C28B135470055147D /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F2E0440C28B133810055147D /* Calendar.swift */,
+				F2E0440F28B1339B0055147D /* TimeZone.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,9 +484,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E043ED28B12CCC0055147D /* TestEvents.swift in Sources */,
 				F253747E28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */,
-				F237B258288FB6D000B63A5B /* ContentView.swift in Sources */,
+				F2E043FB28B12F2C0055147D /* Gradients.swift in Sources */,
+				F2E043F428B12D810055147D /* LabelsStack.swift in Sources */,
+				F2E0440028B1313E0055147D /* Event.swift in Sources */,
+				F2E043F828B12EF80055147D /* EventRow.swift in Sources */,
+				F237B258288FB6D000B63A5B /* EventsView.swift in Sources */,
 				F237B256288FB6D000B63A5B /* GitHubEventsApp.swift in Sources */,
+				F2E0440328B131D80055147D /* Resources.swift in Sources */,
+				F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */,
+				F2E0440628B132320055147D /* EventsViewModel.swift in Sources */,
+				F2E043F028B12D290055147D /* TitleView.swift in Sources */,
+				F2E0441428B133C70055147D /* Session.swift in Sources */,
+				F2E0441728B1340A0055147D /* EventArrayExtension.swift in Sources */,
+				F2E0441A28B1342B0055147D /* EventExtension.swift in Sources */,
+				F2E0441028B1339B0055147D /* TimeZone.swift in Sources */,
+				F2E0440A28B133530055147D /* Decoder.swift in Sources */,
+				F2E0440D28B133810055147D /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +526,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E0441B28B1342D0055147D /* EventExtension.swift in Sources */,
+				F2E0440728B1323C0055147D /* EventsViewModel.swift in Sources */,
 				F253747D28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */,
-				F2F7782D2891A37000BFB598 /* ContentView.swift in Sources */,
+				F2E0441828B134170055147D /* EventArrayExtension.swift in Sources */,
+				F2E0440128B131460055147D /* Event.swift in Sources */,
+				F2E043F928B12F040055147D /* EventRow.swift in Sources */,
+				F2F7782D2891A37000BFB598 /* EventsView.swift in Sources */,
+				F2E0441528B133D20055147D /* Session.swift in Sources */,
 				F253747828919E270097FCD7 /* GitHubEventsWidget.swift in Sources */,
+				F2E043F628B12E610055147D /* MonthAndDayView.swift in Sources */,
+				F2E043FD28B130820055147D /* LabelsStack.swift in Sources */,
+				F2E0440828B132CB0055147D /* Resources.swift in Sources */,
+				F2E0440E28B1338C0055147D /* Calendar.swift in Sources */,
+				F2E0441128B133A50055147D /* TimeZone.swift in Sources */,
+				F2E043FC28B130710055147D /* Gradients.swift in Sources */,
+				F2E0440B28B133650055147D /* Decoder.swift in Sources */,
+				F2E043F528B12E5C0055147D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

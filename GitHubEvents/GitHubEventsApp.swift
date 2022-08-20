@@ -42,7 +42,7 @@ struct FirebaseController {
 
 @main
 struct GitHubEventsApp: App {
-  let viewModel = ViewModel()
+  let viewModel = EventsViewModel()
   @State var events: [Event] = []
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
@@ -50,7 +50,7 @@ struct GitHubEventsApp: App {
     WindowGroup {
 #if os(iOS)
       NavigationView {
-        ContentView(viewModel: viewModel)
+        EventsView(viewModel: viewModel)
 //        VStack {
 //          Button("Add event") {
 //            FirebaseController.addEvent(Event(
