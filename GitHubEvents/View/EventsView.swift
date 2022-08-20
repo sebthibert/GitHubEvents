@@ -44,8 +44,9 @@ struct EventsView: View {
         .searchable(text: $searchableText, prompt: "Search events")
         .animation(.default, value: searchableText)
         .animation(.default, value: selectedLabels)
-      case .failed(let error):
-        Text(error.localizedDescription)
+      case .failed:
+        Text("Sorry we could not get your events right now")
+          .font(.body.monospaced().bold())
       default:
         ProgressView()
       }

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Event: Codable, Identifiable {
+struct Event: Codable, Equatable, Identifiable {
   let primaryName: String
   let secondaryName: String?
   let timestamp: Date

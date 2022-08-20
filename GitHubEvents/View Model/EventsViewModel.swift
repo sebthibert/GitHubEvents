@@ -3,13 +3,22 @@ import WidgetKit
 
 @MainActor
 final class EventsViewModel: ObservableObject {
-  enum State {
+  enum State: Equatable {
     case idle
     case loading
     case loaded([Event])
-    case failed(Error)
+    case failed
   }
+
+  typealias AsyncEvents = () async throws -> [Event]
+  private let events: AsyncEvents
+  private let widgetEvents: AsyncEvents
   @Published var state: State = .idle
+
+  init(events: @escaping AsyncEvents, widgetEvents: @escaping AsyncEvents) {
+    self.events = events
+    self.widgetEvents = widgetEvents
+  }
 
   @Sendable func getEvents() async {
     // Need the if else for UI testing
@@ -17,16 +26,16 @@ final class EventsViewModel: ObservableObject {
 //    state = .loaded(.stub.sorted())
 //#else
     state = .loading
-    do { state = .loaded(try await URLSession.events().sorted()) }
-    catch { state = .failed(error) }
+    do { state = .loaded(try await events().sorted()) }
+    catch { state = .failed }
 //#endif
   }
 
   @Sendable func refreshEvents() async {
     do {
-      state = .loaded(try await URLSession.widgetEvents().sorted())
+      state = .loaded(try await widgetEvents().sorted())
       WidgetCenter.shared.reloadAllTimelines()
     }
-    catch { state = .failed(error) }
+    catch { state = .failed }
   }
 }
