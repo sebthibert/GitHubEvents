@@ -11,10 +11,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     return true
   }
 
+  private let barButtonTextAttributes: [NSAttributedString.Key: Any] = [
+    .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .semibold),
+  ]
+
+  private let barTextAttributes: [NSAttributedString.Key: Any] = [
+    .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .bold),
+  ]
+
   private func setNavigationBarAppearance() {
-    UINavigationBar.appearance().titleTextAttributes = [
-      .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .bold)
-    ]
+    UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTextAttributes, for: .normal)
+    UINavigationBar.appearance().titleTextAttributes = barTextAttributes
   }
 }
 
@@ -83,7 +90,7 @@ struct GitHubEventsApp: App {
       }
       .navigationViewStyle(.stack)
 #else
-      ContentView(viewModel: viewModel)
+      EventsView(viewModel: viewModel)
 #endif
     }
   }
