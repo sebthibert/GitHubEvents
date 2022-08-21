@@ -6,8 +6,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
+    setNavigationBarAppearance()
     FirebaseApp.configure()
     return true
+  }
+
+  private func setNavigationBarAppearance() {
+    UINavigationBar.appearance().titleTextAttributes = [
+      .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .bold)
+    ]
   }
 }
 
