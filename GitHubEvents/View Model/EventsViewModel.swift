@@ -15,7 +15,7 @@ final class EventsViewModel: ObservableObject {
   @Published var state: State = .idle {
     didSet {
       if case .loaded(let events) = state {
-        Task { await NotificationController.resetNotifications(events: events) }
+        Task { await NotificationController.setNotifications(events: events) }
       }
     }
   }

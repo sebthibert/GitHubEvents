@@ -45,6 +45,7 @@ struct EventsView: View {
         .font(.body.monospaced().bold())
         .animation(.default, value: searchableText)
         .animation(.default, value: selectedLabels)
+        .task { await NotificationController.requestAndSetNotifications(events: events) }
       case .failed:
         Text("Sorry we could not get your events right now")
           .font(.body.monospaced().bold())
