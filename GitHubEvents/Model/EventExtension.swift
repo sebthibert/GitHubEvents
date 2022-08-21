@@ -69,17 +69,36 @@ extension Event {
     Calendar.event.dateComponents([.year], from: timestamp, to: Date()).year
   }
 
+  private var monthsSinceTimestamp: Int? {
+    Calendar.event.dateComponents([.month], from: timestamp, to: Date()).month
+  }
+
   var yearsSince: String? {
     guard let year = dateComponents.year, let yearsSinceTimestamp = yearsSinceTimestamp else {
       return nil
     }
     switch yearsSinceTimestamp {
-    case 0:
-      return "\(year): 0 years"
-    case 1:
-      return "\(year): 1 year"
+    case 0...1:
+      guard let monthsSince = monthsSince else {
+        return "\(year): \(yearsSinceTimestamp == 0 ? "0 years" : "1 year")"
+      }
+      return "\(year): \(monthsSince)"
     default:
       return "\(year): \(yearsSinceTimestamp) years"
+    }
+  }
+
+  var monthsSince: String? {
+    guard let monthsSinceTimestamp = monthsSinceTimestamp else {
+      return nil
+    }
+    switch monthsSinceTimestamp {
+    case 0:
+      return "0 months"
+    case 1:
+      return "1 month"
+    default:
+      return "\(monthsSinceTimestamp) months"
     }
   }
 
