@@ -8,6 +8,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   ) -> Bool {
     setNavigationBarAppearance()
     FirebaseApp.configure()
+    Task { await NotificationController.requestAuthorization() }
     return true
   }
 

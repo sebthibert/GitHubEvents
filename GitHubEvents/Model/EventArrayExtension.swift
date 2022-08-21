@@ -1,4 +1,5 @@
 import Foundation
+import UserNotifications
 
 extension Array where Element == Event {
   func filtered(text: String, labels: [Event.Label]) -> [Element] {
@@ -29,5 +30,14 @@ extension Array where Element == Event {
 
   func sorted() -> [Element] {
     sorted { $0.daysBeforeNextEvent ?? .max < $1.daysBeforeNextEvent ?? .max }
+  }
+
+  func split(pendingRequests: [UNNotificationRequest]) -> (Set<String>, [Event]) {
+    let requestIDs = Set(pendingRequests.map { $0.identifier })
+    let eventIDs = Set(map { $0.id })
+    let oldRequestIDs = requestIDs.subtracting(eventIDs)
+    let newRequestIDs = eventIDs.subtracting(requestIDs)
+    let newEvents = filter { newRequestIDs.contains($0.id) }
+    return (oldRequestIDs, newEvents)
   }
 }

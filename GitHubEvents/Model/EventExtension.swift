@@ -2,7 +2,11 @@ import Foundation
 
 extension Event {
   var id: String {
-    primaryName + timestamp.description + category.rawValue
+    primaryName +
+    (secondaryName ?? "") +
+    timestamp.description +
+    category.rawValue +
+    labels.map { $0.rawValue }.joined()
   }
 
   var title: String {

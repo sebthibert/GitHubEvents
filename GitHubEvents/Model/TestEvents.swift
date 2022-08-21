@@ -1,5 +1,15 @@
 import Foundation
 
+extension Event {
+  static let draco = Event(
+    primaryName: "Draco",
+    secondaryName: nil,
+    timestamp: Date(timeIntervalSince1970: 200000000),
+    category: .birthday,
+    labels: [.love]
+  )
+}
+
 extension Array where Element == Event {
   static let stub: [Event] = [
     Event(
@@ -44,12 +54,6 @@ extension Array where Element == Event {
       category: .birthday,
       labels: [.friends]
     ),
-    Event(
-      primaryName: "Draco",
-      secondaryName: nil,
-      timestamp: Date(timeIntervalSince1970: 200000000),
-      category: .birthday,
-      labels: [.love]
-    ),
+    .draco,
   ]
 }

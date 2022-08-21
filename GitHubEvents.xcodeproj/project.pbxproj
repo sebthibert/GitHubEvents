@@ -53,6 +53,9 @@
 		F2E0441B28B1342D0055147D /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441928B1342B0055147D /* EventExtension.swift */; };
 		F2E0441E28B13C910055147D /* EventLabelArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */; };
 		F2E0441F28B13CA40055147D /* EventLabelArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */; };
+		F2E0442228B24E650055147D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442128B24E650055147D /* NotificationController.swift */; };
+		F2E0442328B24E760055147D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442128B24E650055147D /* NotificationController.swift */; };
+		F2E0442528B2C2270055147D /* EventArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442428B2C2270055147D /* EventArrayTests.swift */; };
 		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777502896E2A400F47FF1 /* FirebaseFirestore */; };
@@ -134,6 +137,8 @@
 		F2E0441628B1340A0055147D /* EventArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventArrayExtension.swift; sourceTree = "<group>"; };
 		F2E0441928B1342B0055147D /* EventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExtension.swift; sourceTree = "<group>"; };
 		F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabelArrayExtension.swift; sourceTree = "<group>"; };
+		F2E0442128B24E650055147D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		F2E0442428B2C2270055147D /* EventArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventArrayTests.swift; sourceTree = "<group>"; };
 		F2ED223E289517AA00A1507C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +216,7 @@
 				F237B25B288FB6D100B63A5B /* Preview Content */,
 				F2E043EE28B12D170055147D /* View */,
 				F2E0440428B132140055147D /* View Model */,
+				F2E0442128B24E650055147D /* NotificationController.swift */,
 			);
 			path = GitHubEvents;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				F237B266288FB6D100B63A5B /* EventsViewModelTests.swift */,
+				F2E0442428B2C2270055147D /* EventArrayTests.swift */,
 			);
 			path = GitHubEventsTests;
 			sourceTree = "<group>";
@@ -498,6 +505,7 @@
 				F237B256288FB6D000B63A5B /* GitHubEventsApp.swift in Sources */,
 				F2E0440328B131D80055147D /* Resources.swift in Sources */,
 				F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */,
+				F2E0442228B24E650055147D /* NotificationController.swift in Sources */,
 				F2E0440628B132320055147D /* EventsViewModel.swift in Sources */,
 				F2E043F028B12D290055147D /* TitleView.swift in Sources */,
 				F2E0441E28B13C910055147D /* EventLabelArrayExtension.swift in Sources */,
@@ -514,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E0442528B2C2270055147D /* EventArrayTests.swift in Sources */,
 				F237B267288FB6D100B63A5B /* EventsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +553,7 @@
 				F2E043FD28B130820055147D /* LabelsStack.swift in Sources */,
 				F2E0440828B132CB0055147D /* Resources.swift in Sources */,
 				F2E0440E28B1338C0055147D /* Calendar.swift in Sources */,
+				F2E0442328B24E760055147D /* NotificationController.swift in Sources */,
 				F2E0441F28B13CA40055147D /* EventLabelArrayExtension.swift in Sources */,
 				F2E0441128B133A50055147D /* TimeZone.swift in Sources */,
 				F2E043FC28B130710055147D /* Gradients.swift in Sources */,

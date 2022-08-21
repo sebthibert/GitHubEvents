@@ -12,7 +12,13 @@ final class EventsViewModel: ObservableObject {
   typealias AsyncEvents = () async throws -> [Event]
   private let events: AsyncEvents
   private let refreshEvents: AsyncEvents
-  @Published var state: State = .idle
+  @Published var state: State = .idle {
+    didSet {
+      if case .loaded(let events) = state {
+        Task { await NotificationController.resetNotifications(events: events) }
+      }
+    }
+  }
 
   init(events: @escaping AsyncEvents, refreshEvents: @escaping AsyncEvents) {
     self.events = events
