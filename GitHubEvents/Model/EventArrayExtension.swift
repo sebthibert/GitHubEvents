@@ -2,6 +2,10 @@ import Foundation
 import UserNotifications
 
 extension Array where Element == Event {
+  func filteredCount(searchableText: String) -> String {
+    count >= 1 ? "\(count) \(count > 1 ? "events" : "event")" : "No events found for \(searchableText)"
+  }
+
   func filtered(text: String, labels: [Event.Label]) -> [Element] {
     let text = text.trimmingCharacters(in: .whitespaces).lowercased()
     let textFilter = filter {

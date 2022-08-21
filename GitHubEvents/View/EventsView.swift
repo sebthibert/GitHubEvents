@@ -12,7 +12,7 @@ struct EventsView: View {
       case .loaded(let events):
         List {
           let events = events.filtered(text: searchableText, labels: selectedLabels)
-          let text = events.count >= 1 ? "\(events.count) \(events.count > 1 ? "events" : "event")" : "No events found for \(searchableText)"
+          let text = events.filteredCount(searchableText: searchableText)
           HStack(spacing: 6) {
             Text(text)
               .accessibility(identifier: "Event Count")

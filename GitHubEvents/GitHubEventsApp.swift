@@ -172,11 +172,11 @@ struct ShowEventsInMonth: AppIntent {
 struct ShowNextBirthdayProvider: AppShortcutsProvider {
   static var appShortcuts: [AppShortcut] {
     AppShortcut(intent: ShowNextEvent(), phrases: [
-      "What event is next? \(.applicationName)",
-      "What event is coming up?",
+      "What \(.applicationName) is next?",
+      "What \(.applicationName) is coming up?",
     ])
     AppShortcut(intent: ShowEventsInMonth(), phrases: [
-      "Show me events for a month",
+      "Show me \(.applicationName)s for a month.",
     ])
   }
 }
