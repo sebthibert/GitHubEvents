@@ -3,7 +3,7 @@ import SwiftUI
 struct EventRow: View {
   let event: Event
   @Binding var selectedLabels: [Event.Label]
-  @Environment(\.dynamicTypeSize) var dynamicTypeSize
+  @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {

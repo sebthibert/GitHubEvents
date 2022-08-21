@@ -2,8 +2,8 @@ import SwiftUI
 
 struct EventsView: View {
   @StateObject var viewModel: EventsViewModel
-  @State var searchableText = ""
-  @State var selectedLabels: [Event.Label] = []
+  @State private var searchableText = ""
+  @State private var selectedLabels: [Event.Label] = []
   @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
   var bodyForState: some View {
