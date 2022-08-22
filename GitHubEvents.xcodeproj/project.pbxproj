@@ -56,6 +56,12 @@
 		F2E0442228B24E650055147D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442128B24E650055147D /* NotificationController.swift */; };
 		F2E0442328B24E760055147D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442128B24E650055147D /* NotificationController.swift */; };
 		F2E0442528B2C2270055147D /* EventArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E0442428B2C2270055147D /* EventArrayTests.swift */; };
+		F2E1F64828B3CE8B00DEE7CF /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64728B3CE8B00DEE7CF /* EventView.swift */; };
+		F2E1F64A28B3CE9D00DEE7CF /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64928B3CE9D00DEE7CF /* CountdownView.swift */; };
+		F2E1F64B28B3CEAC00DEE7CF /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64928B3CE9D00DEE7CF /* CountdownView.swift */; };
+		F2E1F64C28B3CEAF00DEE7CF /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64728B3CE8B00DEE7CF /* EventView.swift */; };
+		F2E1F64E28B3CEBA00DEE7CF /* CountdownStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64D28B3CEBA00DEE7CF /* CountdownStack.swift */; };
+		F2E1F64F28B3CF0000DEE7CF /* CountdownStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E1F64D28B3CEBA00DEE7CF /* CountdownStack.swift */; };
 		F2ED223F289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2ED2240289517AA00A1507C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2ED223E289517AA00A1507C /* GoogleService-Info.plist */; };
 		F2F777512896E2A400F47FF1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2F777502896E2A400F47FF1 /* FirebaseFirestore */; };
@@ -139,6 +145,9 @@
 		F2E0441D28B13C910055147D /* EventLabelArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLabelArrayExtension.swift; sourceTree = "<group>"; };
 		F2E0442128B24E650055147D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		F2E0442428B2C2270055147D /* EventArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventArrayTests.swift; sourceTree = "<group>"; };
+		F2E1F64728B3CE8B00DEE7CF /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		F2E1F64928B3CE9D00DEE7CF /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		F2E1F64D28B3CEBA00DEE7CF /* CountdownStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownStack.swift; sourceTree = "<group>"; };
 		F2ED223E289517AA00A1507C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,9 +279,12 @@
 		F2E043EE28B12D170055147D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2E1F64D28B3CEBA00DEE7CF /* CountdownStack.swift */,
+				F2E1F64928B3CE9D00DEE7CF /* CountdownView.swift */,
 				F2E043F128B12D3F0055147D /* DateView.swift */,
 				F2E043F728B12EF80055147D /* EventRow.swift */,
 				F237B257288FB6D000B63A5B /* EventsView.swift */,
+				F2E1F64728B3CE8B00DEE7CF /* EventView.swift */,
 				F2E043FA28B12F2C0055147D /* Gradients.swift */,
 				F2E043F328B12D810055147D /* LabelsStack.swift */,
 				F2E043EF28B12D290055147D /* TitleView.swift */,
@@ -495,9 +507,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2E1F64A28B3CE9D00DEE7CF /* CountdownView.swift in Sources */,
 				F2E043ED28B12CCC0055147D /* TestEvents.swift in Sources */,
 				F253747E28919E280097FCD7 /* GitHubEventsWidget.intentdefinition in Sources */,
 				F2E043FB28B12F2C0055147D /* Gradients.swift in Sources */,
+				F2E1F64E28B3CEBA00DEE7CF /* CountdownStack.swift in Sources */,
 				F2E043F428B12D810055147D /* LabelsStack.swift in Sources */,
 				F2E0440028B1313E0055147D /* Event.swift in Sources */,
 				F2E043F828B12EF80055147D /* EventRow.swift in Sources */,
@@ -510,6 +524,7 @@
 				F2E043F028B12D290055147D /* TitleView.swift in Sources */,
 				F2E0441E28B13C910055147D /* EventLabelArrayExtension.swift in Sources */,
 				F2E0441428B133C70055147D /* Session.swift in Sources */,
+				F2E1F64828B3CE8B00DEE7CF /* EventView.swift in Sources */,
 				F2E0441728B1340A0055147D /* EventArrayExtension.swift in Sources */,
 				F2E0441A28B1342B0055147D /* EventExtension.swift in Sources */,
 				F2E0441028B1339B0055147D /* TimeZone.swift in Sources */,
@@ -546,6 +561,7 @@
 				F2E0441828B134170055147D /* EventArrayExtension.swift in Sources */,
 				F2E0440128B131460055147D /* Event.swift in Sources */,
 				F2E043F928B12F040055147D /* EventRow.swift in Sources */,
+				F2E1F64B28B3CEAC00DEE7CF /* CountdownView.swift in Sources */,
 				F2F7782D2891A37000BFB598 /* EventsView.swift in Sources */,
 				F2E0441528B133D20055147D /* Session.swift in Sources */,
 				F253747828919E270097FCD7 /* GitHubEventsWidget.swift in Sources */,
@@ -554,10 +570,12 @@
 				F2E0440828B132CB0055147D /* Resources.swift in Sources */,
 				F2E0440E28B1338C0055147D /* Calendar.swift in Sources */,
 				F2E0442328B24E760055147D /* NotificationController.swift in Sources */,
+				F2E1F64C28B3CEAF00DEE7CF /* EventView.swift in Sources */,
 				F2E0441F28B13CA40055147D /* EventLabelArrayExtension.swift in Sources */,
 				F2E0441128B133A50055147D /* TimeZone.swift in Sources */,
 				F2E043FC28B130710055147D /* Gradients.swift in Sources */,
 				F2E0440B28B133650055147D /* Decoder.swift in Sources */,
+				F2E1F64F28B3CF0000DEE7CF /* CountdownStack.swift in Sources */,
 				F2E043F528B12E5C0055147D /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
