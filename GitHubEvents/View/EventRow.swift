@@ -17,7 +17,11 @@ struct EventRow: View {
         }
         Spacer()
         VStack(alignment: .trailing, spacing: 12) {
-          DateView(day: event.day, month: event.shortMonth)
+          DateView(
+            day: event.day,
+            month: event.shortMonth,
+            textAlignment: .trailing
+          )
           if let daysBefore = event.daysBefore {
             Text(daysBefore)
               .multilineTextAlignment(.trailing)

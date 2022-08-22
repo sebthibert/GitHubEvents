@@ -63,7 +63,11 @@ struct SmallWidget: View {
     if let event = events.first {
       VStack(alignment: .leading, spacing: 12) {
         TitleView(title: event.title)
-        DateView(day: event.day, month: event.shortMonth)
+        DateView(
+          day: event.day,
+          month: event.shortMonth,
+          textAlignment: .leading
+        )
       }
       .padding()
     } else {

@@ -72,10 +72,17 @@ struct EventView: View {
 
   var body: some View {
     ScrollView {
-      VStack(spacing: 32) {
+      VStack(spacing: 16) {
         TitleView(
           title: event.title,
           font: .title,
+          textAlignment: .center
+        )
+        DateView(
+          day: event.day,
+          month: event.fullmonth,
+          year: event.year,
+          font: .title3,
           textAlignment: .center
         )
       }

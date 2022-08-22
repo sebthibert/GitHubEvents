@@ -161,7 +161,11 @@ struct ShowEventsInMonth: AppIntent {
           HStack(spacing: 6) {
             TitleView(title: event.title)
             Spacer()
-            DateView(day: event.day, month: event.shortMonth)
+            DateView(
+              day: event.day,
+              month: event.shortMonth,
+              textAlignment: .trailing
+            )
           }
         }
         .padding()
