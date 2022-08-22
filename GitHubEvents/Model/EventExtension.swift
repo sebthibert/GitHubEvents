@@ -69,13 +69,16 @@ extension Event {
     Calendar.event.dateComponents([.day, .month, .year], from: timestamp)
   }
 
+  func dateComponentsSinceFirstEvent(date currentDate: Date) -> DateComponents {
+    Calendar.event.dateComponents([.year, .month, .day, .hour, .minute, .second], from: timestamp, to: currentDate)
+  }
 
   private var yearsSinceTimestamp: Int? {
-    Calendar.event.dateComponents([.year], from: timestamp, to: Date()).year
+    Calendar.event.dateComponents([.year], from: timestamp, to: .now).year
   }
 
   private var monthsSinceTimestamp: Int? {
-    Calendar.event.dateComponents([.month], from: timestamp, to: Date()).month
+    Calendar.event.dateComponents([.month], from: timestamp, to: .now).month
   }
 
   var yearsSince: String? {

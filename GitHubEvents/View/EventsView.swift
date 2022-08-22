@@ -69,6 +69,8 @@ struct EventsView: View {
 
 struct EventView: View {
   let event: Event
+  @State private var currentDate = Date()
+  private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
   var body: some View {
     ScrollView {
@@ -85,8 +87,12 @@ struct EventView: View {
           font: .title3,
           textAlignment: .center
         )
+        Text(event.dateComponentsSinceFirstEvent(date: currentDate).description)
       }
       .padding(32)
+    }
+    .onReceive(timer) { date in
+      currentDate = date
     }
   }
 }
