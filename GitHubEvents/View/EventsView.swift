@@ -42,7 +42,7 @@ struct EventsView: View {
         .listStyle(.plain)
         .refreshable(action: viewModel.refreshEvents)
         .searchable(text: $searchableText, prompt: "Search events")
-        .font(.body.monospaced().bold())
+        .font(.subheadline.monospaced().bold())
         .animation(.default, value: searchableText)
         .animation(.default, value: selectedLabels)
         .task { await NotificationController.requestAndSetNotifications(events: events) }

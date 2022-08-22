@@ -12,16 +12,21 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 
   private let barButtonTextAttributes: [NSAttributedString.Key: Any] = [
-    .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .semibold),
+    .font: UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .monospacedSystemFont(ofSize: 15, weight: .semibold)),
+  ]
+
+  private let barLargeTextAttributes: [NSAttributedString.Key: Any] = [
+    .font: UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: .monospacedSystemFont(ofSize: 34, weight: .bold)),
   ]
 
   private let barTextAttributes: [NSAttributedString.Key: Any] = [
-    .font: UIFont.monospacedSystemFont(ofSize: 17, weight: .bold),
+    .font: UIFontMetrics(forTextStyle: .body).scaledFont(for: .monospacedSystemFont(ofSize: 17, weight: .bold)),
   ]
 
   private func setNavigationBarAppearance() {
     UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTextAttributes, for: .normal)
     UINavigationBar.appearance().titleTextAttributes = barTextAttributes
+    UINavigationBar.appearance().largeTitleTextAttributes = barLargeTextAttributes
   }
 }
 

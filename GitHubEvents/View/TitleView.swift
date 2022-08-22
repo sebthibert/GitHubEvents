@@ -5,7 +5,7 @@ struct TitleView: View {
 
   var body: some View {
     Text(title)
-      .font(.title3.monospaced().bold())
+      .font(.body.monospaced().bold())
       .foregroundStyle(LinearGradient.title)
   }
 }
