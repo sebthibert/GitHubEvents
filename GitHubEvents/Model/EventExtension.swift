@@ -26,11 +26,8 @@ extension Event {
     Calendar.event.dateComponents([.day, .month], from: timestamp)
   }
 
-  var day: String? {
-    guard let day = timestampDateComponents.day else {
-      return nil
-    }
-    return String(format: "%02d", day)
+  var day: String {
+    gmt(dateFormat: "dd")
   }
 
   var fullDay: String? {

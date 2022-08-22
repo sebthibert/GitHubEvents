@@ -4,6 +4,7 @@ struct EventsView: View {
   @StateObject var viewModel: EventsViewModel
   @State private var searchableText = ""
   @State private var selectedLabels: [Event.Label] = []
+  @State private var selectedEvent: Event?
   @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
   var bodyForState: some View {
@@ -32,8 +33,9 @@ struct EventsView: View {
 #endif
           .animation(.none, value: searchableText)
           .animation(.none, value: selectedLabels)
-          ForEach(events) {
-            EventRow(event: $0, selectedLabels: $selectedLabels)
+          ForEach(events) { event in
+            EventRow(event: event, selectedLabels: $selectedLabels)
+              .onTapGesture { selectedEvent = event }
 #if os(macOS)
               .padding([.horizontal])
 #endif
@@ -45,6 +47,7 @@ struct EventsView: View {
         .font(.subheadline.monospaced().bold())
         .animation(.default, value: searchableText)
         .animation(.default, value: selectedLabels)
+        .popover(item: $selectedEvent, content: EventView.init)
         .task { await NotificationController.requestAndSetNotifications(events: events) }
       case .failed:
         Text("Sorry we could not get your events right now")
@@ -61,5 +64,22 @@ struct EventsView: View {
       .navigationBarTitle("Events", displayMode: .inline)
 #endif
       .task(viewModel.getEvents)
+  }
+}
+
+struct EventView: View {
+  let event: Event
+
+  var body: some View {
+    ScrollView {
+      VStack(spacing: 32) {
+        TitleView(
+          title: event.title,
+          font: .title,
+          textAlignment: .center
+        )
+      }
+      .padding(32)
+    }
   }
 }

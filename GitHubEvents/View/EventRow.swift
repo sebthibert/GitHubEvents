@@ -32,5 +32,6 @@ struct EventRow: View {
       )
     }
     .padding(.vertical, 8)
+    .contentShape(Rectangle())
   }
 }
