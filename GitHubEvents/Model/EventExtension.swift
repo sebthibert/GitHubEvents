@@ -23,7 +23,7 @@ extension Event {
   }
 
   private var timestampDateComponents: DateComponents {
-    Calendar.event.dateComponents([.day, .month], from: timestamp)
+    Calendar.event.dateComponents([.month, .day, .hour, .minute, .second], from: timestamp)
   }
 
   var day: String {
@@ -140,8 +140,32 @@ extension Event {
     return Calendar.event.dateComponents([.day], from: currentDate, to: eventDateThisYear).day
   }
 
+  func dateComponentsTillNextEvent(date currentDate: Date) -> DateComponents? {
+    guard let currentYear = currentYear(currentDate: currentDate) else {
+      return nil
+    }
+    var timestampDateComponents = self.timestampDateComponents
+    timestampDateComponents.year = currentYear
+    guard let daysBeforeEventThisYear = daysBeforeEventThisYear(currentDate: currentDate) else {
+      return nil
+    }
+    if daysBeforeEventThisYear >= 0 {
+      guard let eventDateThisYear = Calendar.event.date(from: timestampDateComponents) else {
+        return nil
+      }
+      return Calendar.event.dateComponents([.month, .day, .hour, .minute, .second], from: currentDate, to: eventDateThisYear)
+    } else {
+      let nextYear = currentYear + 1
+      timestampDateComponents.year = nextYear
+      guard let eventDateNextYear = Calendar.event.date(from: timestampDateComponents) else {
+        return nil
+      }
+      return Calendar.event.dateComponents([.month, .day, .hour, .minute, .second], from: currentDate, to: eventDateNextYear)
+    }
+  }
+
   var daysBeforeNextEvent: Int? {
-    let currentDate = Date()
+    let currentDate: Date = .now
     guard let currentYear = currentYear(currentDate: currentDate) else {
       return nil
     }
