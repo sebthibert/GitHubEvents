@@ -61,6 +61,10 @@ extension Event {
     gmt(dateFormat: "MMMM")
   }
 
+  var year: String {
+    gmt(dateFormat: "yyyy")
+  }
+
   var dateComponents: DateComponents {
     Calendar.event.dateComponents([.day, .month, .year], from: timestamp)
   }
@@ -75,7 +79,7 @@ extension Event {
   }
 
   var yearsSince: String? {
-    guard let year = dateComponents.year, let yearsSinceTimestamp = yearsSinceTimestamp else {
+    guard let yearsSinceTimestamp = yearsSinceTimestamp else {
       return nil
     }
     switch yearsSinceTimestamp {

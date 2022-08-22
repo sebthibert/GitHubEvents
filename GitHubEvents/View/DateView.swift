@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MonthAndDayView: View {
+struct DateView: View {
   let day: String
   let month: String
 

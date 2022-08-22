@@ -24,10 +24,10 @@
 		F253748128919E280097FCD7 /* GitHubEventsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F253747028919E270097FCD7 /* GitHubEventsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F2E043ED28B12CCC0055147D /* TestEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EC28B12CCC0055147D /* TestEvents.swift */; };
 		F2E043F028B12D290055147D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EF28B12D290055147D /* TitleView.swift */; };
-		F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* MonthAndDayView.swift */; };
+		F2E043F228B12D3F0055147D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* DateView.swift */; };
 		F2E043F428B12D810055147D /* LabelsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F328B12D810055147D /* LabelsStack.swift */; };
 		F2E043F528B12E5C0055147D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043EF28B12D290055147D /* TitleView.swift */; };
-		F2E043F628B12E610055147D /* MonthAndDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* MonthAndDayView.swift */; };
+		F2E043F628B12E610055147D /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F128B12D3F0055147D /* DateView.swift */; };
 		F2E043F828B12EF80055147D /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F728B12EF80055147D /* EventRow.swift */; };
 		F2E043F928B12F040055147D /* EventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043F728B12EF80055147D /* EventRow.swift */; };
 		F2E043FB28B12F2C0055147D /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E043FA28B12F2C0055147D /* Gradients.swift */; };
@@ -123,7 +123,7 @@
 		F253747C28919E280097FCD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2E043EC28B12CCC0055147D /* TestEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEvents.swift; sourceTree = "<group>"; };
 		F2E043EF28B12D290055147D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		F2E043F128B12D3F0055147D /* MonthAndDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthAndDayView.swift; sourceTree = "<group>"; };
+		F2E043F128B12D3F0055147D /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		F2E043F328B12D810055147D /* LabelsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsStack.swift; sourceTree = "<group>"; };
 		F2E043F728B12EF80055147D /* EventRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRow.swift; sourceTree = "<group>"; };
 		F2E043FA28B12F2C0055147D /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
@@ -270,11 +270,11 @@
 		F2E043EE28B12D170055147D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2E043F128B12D3F0055147D /* DateView.swift */,
 				F2E043F728B12EF80055147D /* EventRow.swift */,
 				F237B257288FB6D000B63A5B /* EventsView.swift */,
 				F2E043FA28B12F2C0055147D /* Gradients.swift */,
 				F2E043F328B12D810055147D /* LabelsStack.swift */,
-				F2E043F128B12D3F0055147D /* MonthAndDayView.swift */,
 				F2E043EF28B12D290055147D /* TitleView.swift */,
 			);
 			path = View;
@@ -504,7 +504,7 @@
 				F237B258288FB6D000B63A5B /* EventsView.swift in Sources */,
 				F237B256288FB6D000B63A5B /* GitHubEventsApp.swift in Sources */,
 				F2E0440328B131D80055147D /* Resources.swift in Sources */,
-				F2E043F228B12D3F0055147D /* MonthAndDayView.swift in Sources */,
+				F2E043F228B12D3F0055147D /* DateView.swift in Sources */,
 				F2E0442228B24E650055147D /* NotificationController.swift in Sources */,
 				F2E0440628B132320055147D /* EventsViewModel.swift in Sources */,
 				F2E043F028B12D290055147D /* TitleView.swift in Sources */,
@@ -549,7 +549,7 @@
 				F2F7782D2891A37000BFB598 /* EventsView.swift in Sources */,
 				F2E0441528B133D20055147D /* Session.swift in Sources */,
 				F253747828919E270097FCD7 /* GitHubEventsWidget.swift in Sources */,
-				F2E043F628B12E610055147D /* MonthAndDayView.swift in Sources */,
+				F2E043F628B12E610055147D /* DateView.swift in Sources */,
 				F2E043FD28B130820055147D /* LabelsStack.swift in Sources */,
 				F2E0440828B132CB0055147D /* Resources.swift in Sources */,
 				F2E0440E28B1338C0055147D /* Calendar.swift in Sources */,
