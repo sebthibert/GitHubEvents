@@ -26,14 +26,9 @@ final class EventsViewModel: ObservableObject {
   }
 
   @MainActor @Sendable func getEvents() async {
-    // Need the if else for UI testing
-//#if DEBUG
-//    state = .loaded(.stub.sorted())
-//#else
     state = .loading
     do { state = .loaded(try await events().sorted()) }
     catch { state = .failed }
-//#endif
   }
 
   @MainActor @Sendable func refreshEvents() async {
