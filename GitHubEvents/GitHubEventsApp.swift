@@ -1,4 +1,3 @@
-import FirebaseCore
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -7,7 +6,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
     setNavigationBarAppearance()
-    FirebaseApp.configure()
     return true
   }
 
@@ -30,35 +28,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
-import FirebaseFirestore
-import FirebaseFirestoreCombineSwift
-
-struct FirebaseController {
-  static let database = Firestore.firestore()
-  static let collection = database.collection("splebbo-events")
-
-  static func addEvent(_ event: Event) {
-    var ref: DocumentReference? = nil
-    do {
-      ref = try collection.addDocument(from: event)
-      print("Document added with ID: \(ref!.documentID)")
-    } catch {
-      print("Error adding document: \(error)")
-    }
-  }
-
-  static func getEvents(completion: @escaping ([Event]) -> Void) {
-    collection.getDocuments { snapshot, error in
-      if let documents = snapshot?.documents, error == nil {
-        let events = documents.compactMap { try? $0.data(as: Event.self) }
-        completion(events)
-      } else if let error = error {
-        print("Error getting documents: \(error)")
-      }
-    }
-  }
-}
-
 @main
 struct GitHubEventsApp: App {
   private let viewModel = EventsViewModel(
@@ -73,25 +42,6 @@ struct GitHubEventsApp: App {
 #if os(iOS)
       NavigationView {
         EventsView(viewModel: viewModel)
-//        VStack {
-//          Button("Add event") {
-//            FirebaseController.addEvent(Event(
-//              primaryName: "Test",
-//              secondaryName: nil,
-//              timestamp: Date(),
-//              type: .birthday,
-//              imageURL: nil,
-//              labels: [.friends, .family]))
-//          }
-//          .onAppear {
-//            FirebaseController.getEvents { events in
-//              self.events = events
-//            }
-//          }
-//          ForEach(events) {
-//            EventRow(event: $0, selectedLabels: .constant([]))
-//          }
-//        }
       }
       .navigationViewStyle(.stack)
 #else
